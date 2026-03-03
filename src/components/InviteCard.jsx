@@ -13,13 +13,13 @@ const InviteCard = () => {
 
   /**
    * Manipula o clique no botão "Pagar com Pix"
-   * Exibe mensagem de pagamento simulado
+   * Exibe QR code e informações de pagamento
    */
   const handlePagarPix = () => {
     if (nome.trim()) {
-      setMensagem(`Pagamento com Pix iniciado para ${nome} (simulação)`);
+      setMensagem(`Escaneie o QR Code para pagar o ingresso de ${nome}`);
     } else {
-      setMensagem('Por favor, digite seu nome');
+      setMensagem('Por favor, digite seu nome antes de pagar');
     }
   };
 
@@ -77,18 +77,25 @@ const InviteCard = () => {
           <div className="space-y-4">
             <button
               onClick={handlePagarPix}
-              className="w-full py-3 px-6 bg-zinc-100 text-zinc-900 font-medium rounded-lg hover:bg-zinc-200 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="w-full py-3 px-6 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
             >
-              Pagar com Pix
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd"/>
+              </svg>
+              <span>Pagar com Pix</span>
             </button>
             
-            {/* QR Code */}
-            <div className="flex justify-center">
+            {/* QR Code - sempre visível */}
+            <div className="bg-white p-4 rounded-lg border-2 border-zinc-600">
               <img 
                 src="/qrcode.png" 
                 alt="QR Code para pagamento Pix" 
-                className="w-32 h-32 rounded-lg border-2 border-zinc-600"
+                className="w-32 h-32 mx-auto rounded"
+                onError={(e) => {
+                  e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik00MCA0MEg4OFY4OEg0MFY0MFoiIGZpbGw9IiMxMjEyMTIiLz4KPHA+UVIgQ29kZTwvcD4KPHRzcGFuIHg9IjQ0IiB5PSI3MCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiPkNvZGU8L3RzcGFuPgo8L3N2Zz4=';
+                }}
               />
+              <p className="text-xs text-gray-600 text-center mt-2">Escaneie para pagar</p>
             </div>
           </div>
         </div>
