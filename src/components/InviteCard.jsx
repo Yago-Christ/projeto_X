@@ -12,24 +12,12 @@ const InviteCard = () => {
   const [mensagem, setMensagem] = useState('');
 
   /**
-   * Manipula o clique no botão "Confirmar e pagar agora"
+   * Manipula o clique no botão "Pagar com Pix"
    * Exibe mensagem de pagamento simulado
    */
-  const handleConfirmarPagar = () => {
+  const handlePagarPix = () => {
     if (nome.trim()) {
-      setMensagem(`Pagamento iniciado para ${nome} (simulação)`);
-    } else {
-      setMensagem('Por favor, digite seu nome');
-    }
-  };
-
-  /**
-   * Manipula o clique no botão "Reservar e pagar depois"
-   * Exibe mensagem de reserva simulada
-   */
-  const handleReservar = () => {
-    if (nome.trim()) {
-      setMensagem(`Reserva registrada para ${nome} (simulação)`);
+      setMensagem(`Pagamento com Pix iniciado para ${nome} (simulação)`);
     } else {
       setMensagem('Por favor, digite seu nome');
     }
@@ -58,16 +46,19 @@ const InviteCard = () => {
           {/* Texto informativo */}
           <div className="text-zinc-400 text-sm space-y-2 text-left bg-zinc-800/30 rounded-lg p-4">
             <p className="tracking-wide">
-              <span className="text-zinc-300 font-medium">Data:</span> do dia 30 para o dia 31.
+              <span className="text-zinc-300 font-medium">Local:</span> Brooklyn
             </p>
             <p className="tracking-wide">
-              <span className="text-zinc-300 font-medium">Horário:</span> das 21h30 até o amanhecer.
+              <span className="text-zinc-300 font-medium">Bebidas liberadas</span>
             </p>
             <p className="tracking-wide">
-              <span className="text-zinc-300 font-medium">Local:</span> em breve – estamos definindo um espaço grande.
+              <span className="text-zinc-300 font-medium">Musica:</span> DJ Maickel Eckert
             </p>
             <p className="tracking-wide">
-              <span className="text-zinc-300 font-medium">Informações:</span> Haverá DJ e open bar.
+              <span className="text-zinc-300 font-medium">Horário:</span> 23:30 até de manhã
+            </p>
+            <p className="tracking-wide text-center font-medium text-zinc-200">
+              Antecipe a sua entrada!
             </p>
           </div>
 
@@ -82,20 +73,23 @@ const InviteCard = () => {
             />
           </div>
 
-          {/* Botões de ação */}
-          <div className="space-y-3">
+          {/* Botão de pagamento Pix */}
+          <div className="space-y-4">
             <button
-              onClick={handleConfirmarPagar}
+              onClick={handlePagarPix}
               className="w-full py-3 px-6 bg-zinc-100 text-zinc-900 font-medium rounded-lg hover:bg-zinc-200 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              Confirmar e pagar agora
+              Pagar com Pix
             </button>
-            <button
-              onClick={handleReservar}
-              className="w-full py-3 px-6 bg-transparent border border-zinc-400 text-zinc-300 font-medium rounded-lg hover:bg-zinc-800/50 hover:border-zinc-300 hover:text-white transform hover:scale-105 transition-all duration-300"
-            >
-              Reservar e pagar depois
-            </button>
+            
+            {/* QR Code */}
+            <div className="flex justify-center">
+              <img 
+                src="/qrcode.png" 
+                alt="QR Code para pagamento Pix" 
+                className="w-32 h-32 rounded-lg border-2 border-zinc-600"
+              />
+            </div>
           </div>
         </div>
       </div>
