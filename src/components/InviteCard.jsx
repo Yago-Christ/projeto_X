@@ -102,10 +102,10 @@ const InviteCard = () => {
             <div className="bg-white p-4 rounded-lg border-2 border-zinc-600">
               <img 
                 src="/qrcode.png" 
-                alt="QR Code para pagamento Pix" 
-                className="w-32 h-32 mx-auto rounded"
+                alt="Imagem para pagamento" 
+                className="w-40 h-40 mx-auto object-contain"
               />
-              <p className="text-xs text-gray-600 text-center mt-2">Escaneie para pagar</p>
+              <p className="text-xs text-gray-600 text-center mt-2">Clique para pagar</p>
             </div>
           </div>
         </div>

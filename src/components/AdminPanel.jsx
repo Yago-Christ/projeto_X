@@ -122,7 +122,7 @@ const AdminPanel = ({ onLogout }) => {
             </h2>
             <button
               onClick={() => {
-                if (confirm('Limpar todos os pagamentos?')) {
+                if (window.confirm('Limpar todos os pagamentos?')) {
                   setPagamentos([]);
                   localStorage.removeItem('pagamentos');
                 }
