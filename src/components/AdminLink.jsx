@@ -1,24 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * Componente de link para área administrativa
- * Exibido discretamente no rodapé do convite
+ * Exibido discretamente no canto da página principal
  */
 const AdminLink = () => {
   return (
     <div className="fixed bottom-4 right-4 z-20">
-      <a
-        href="/admin/login"
-        className="text-zinc-600 hover:text-zinc-500 text-xs transition-colors duration-300 tracking-wide"
-        onClick={(e) => {
-          // Adiciona confirmação para evitar acesso acidental
-          if (!window.confirm('Deseja acessar a área administrativa?')) {
-            e.preventDefault();
-          }
-        }}
+      <Link
+        to="/admin/login"
+        className="text-zinc-600 hover:text-zinc-500 transition-colors duration-300 text-xs tracking-wide"
       >
-        ADMIN
-      </a>
+        Admin
+      </Link>
     </div>
   );
 };
