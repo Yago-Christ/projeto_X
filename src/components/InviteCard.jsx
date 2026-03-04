@@ -13,11 +13,24 @@ const InviteCard = () => {
 
   /**
    * Manipula o clique no botão "Pagar com Pix"
-   * Exibe QR code e informações de pagamento
+   * Registra pagamento e exibe QR code
    */
   const handlePagarPix = () => {
     if (nome.trim()) {
-      setMensagem(`Escaneie o QR Code para pagar o ingresso de ${nome}`);
+      // Salvar no localStorage
+      const pagamentos = JSON.parse(localStorage.getItem('pagamentos') || '[]');
+      const novoPagamento = {
+        id: Date.now(),
+        nome: nome,
+        data: new Date().toLocaleDateString('pt-BR'),
+        hora: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+        status: 'pago',
+        metodo: 'Pix'
+      };
+      pagamentos.push(novoPagamento);
+      localStorage.setItem('pagamentos', JSON.stringify(pagamentos));
+      
+      setMensagem(`Pagamento registrado para ${nome}! Escaneie o QR Code para confirmar.`);
     } else {
       setMensagem('Por favor, digite seu nome antes de pagar');
     }
