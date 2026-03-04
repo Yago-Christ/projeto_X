@@ -147,7 +147,7 @@ const AdminPanel = ({ onLogout }) => {
         {/* Footer */}
         <div className="mt-6 text-center">
           <a
-            href="/"
+            href="/#/"
             className="text-zinc-400 text-sm hover:text-zinc-300 transition-colors duration-300 tracking-wide"
           >
             ← Voltar para o convite

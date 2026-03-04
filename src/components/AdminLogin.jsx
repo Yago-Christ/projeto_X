@@ -74,7 +74,7 @@ const AdminLogin = ({ onLogin }) => {
             {/* Link para voltar */}
             <div className="pt-4">
               <a
-                href="/"
+                href="/#/"
                 className="text-zinc-400 text-sm hover:text-zinc-300 transition-colors duration-300 tracking-wide"
               >
                 ← Voltar para o convite

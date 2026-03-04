@@ -87,14 +87,36 @@ const InviteCard = () => {
             
             {/* QR Code - sempre visível */}
             <div className="bg-white p-4 rounded-lg border-2 border-zinc-600">
-              <img 
-                src="/qrcode.png" 
-                alt="QR Code para pagamento Pix" 
-                className="w-32 h-32 mx-auto rounded"
-                onError={(e) => {
-                  e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik00MCA0MEg4OFY4OEg0MFY0MFoiIGZpbGw9IiMxMjEyMTIiLz4KPHA+UVIgQ29kZTwvcD4KPHRzcGFuIHg9IjQ0IiB5PSI3MCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiPkNvZGU8L3RzcGFuPgo8L3N2Zz4=';
-                }}
-              />
+              <div className="w-32 h-32 mx-auto rounded bg-gray-100 flex items-center justify-center">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                  {/* QR Code placeholder */}
+                  <rect width="120" height="120" fill="white"/>
+                  <rect x="10" y="10" width="25" height="25" fill="black"/>
+                  <rect x="15" y="15" width="15" height="15" fill="white"/>
+                  <rect x="20" y="20" width="5" height="5" fill="black"/>
+                  
+                  <rect x="85" y="10" width="25" height="25" fill="black"/>
+                  <rect x="90" y="15" width="15" height="15" fill="white"/>
+                  <rect x="95" y="20" width="5" height="5" fill="black"/>
+                  
+                  <rect x="10" y="85" width="25" height="25" fill="black"/>
+                  <rect x="15" y="90" width="15" height="15" fill="white"/>
+                  <rect x="20" y="95" width="5" height="5" fill="black"/>
+                  
+                  {/* Centro do QR Code */}
+                  <rect x="45" y="45" width="30" height="30" fill="black"/>
+                  <rect x="50" y="50" width="20" height="20" fill="white"/>
+                  <rect x="55" y="55" width="10" height="10" fill="black"/>
+                  
+                  {/* Padrão QR Code */}
+                  <rect x="40" y="20" width="5" height="5" fill="black"/>
+                  <rect x="50" y="20" width="5" height="5" fill="black"/>
+                  <rect x="60" y="20" width="5" height="5" fill="black"/>
+                  <rect x="70" y="20" width="5" height="5" fill="black"/>
+                  
+                  <text x="60" y="105" textAnchor="middle" fontSize="8" fill="black">PIX</text>
+                </svg>
+              </div>
               <p className="text-xs text-gray-600 text-center mt-2">Escaneie para pagar</p>
             </div>
           </div>
