@@ -104,43 +104,7 @@ const InviteCard = () => {
                 src="/qrcode.png" 
                 alt="QR Code para pagamento Pix" 
                 className="w-32 h-32 mx-auto rounded"
-                onError={(e) => {
-                  // Fallback para o QR Code SVG se a imagem não carregar
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
-                }}
               />
-              {/* QR Code fallback */}
-              <div className="w-32 h-32 mx-auto rounded bg-gray-100 flex items-center justify-center" style={{display: 'none'}}>
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                  {/* QR Code placeholder */}
-                  <rect width="120" height="120" fill="white"/>
-                  <rect x="10" y="10" width="25" height="25" fill="black"/>
-                  <rect x="15" y="15" width="15" height="15" fill="white"/>
-                  <rect x="20" y="20" width="5" height="5" fill="black"/>
-                  
-                  <rect x="85" y="10" width="25" height="25" fill="black"/>
-                  <rect x="90" y="15" width="15" height="15" fill="white"/>
-                  <rect x="95" y="20" width="5" height="5" fill="black"/>
-                  
-                  <rect x="10" y="85" width="25" height="25" fill="black"/>
-                  <rect x="15" y="90" width="15" height="15" fill="white"/>
-                  <rect x="20" y="95" width="5" height="5" fill="black"/>
-                  
-                  {/* Centro do QR Code */}
-                  <rect x="45" y="45" width="30" height="30" fill="black"/>
-                  <rect x="50" y="50" width="20" height="20" fill="white"/>
-                  <rect x="55" y="55" width="10" height="10" fill="black"/>
-                  
-                  {/* Padrão QR Code */}
-                  <rect x="40" y="20" width="5" height="5" fill="black"/>
-                  <rect x="50" y="20" width="5" height="5" fill="black"/>
-                  <rect x="60" y="20" width="5" height="5" fill="black"/>
-                  <rect x="70" y="20" width="5" height="5" fill="black"/>
-                  
-                  <text x="60" y="105" textAnchor="middle" fontSize="8" fill="black">PIX</text>
-                </svg>
-              </div>
               <p className="text-xs text-gray-600 text-center mt-2">Escaneie para pagar</p>
             </div>
           </div>
