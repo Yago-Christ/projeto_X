@@ -16,7 +16,10 @@ const AdminLogin = ({ onLogin }) => {
     
     // Senha simples para demonstração
     if (senha === 'admin123') {
+      console.log('Login bem-sucedido, chamando onLogin...');
       onLogin();
+      // Força a navegação após o login
+      window.location.hash = '#/admin';
     } else {
       setErro('Senha incorreta');
       setTimeout(() => setErro(''), 3000);

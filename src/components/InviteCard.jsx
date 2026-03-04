@@ -87,7 +87,18 @@ const InviteCard = () => {
             
             {/* QR Code - sempre visível */}
             <div className="bg-white p-4 rounded-lg border-2 border-zinc-600">
-              <div className="w-32 h-32 mx-auto rounded bg-gray-100 flex items-center justify-center">
+              <img 
+                src="/qrcode.png" 
+                alt="QR Code para pagamento Pix" 
+                className="w-32 h-32 mx-auto rounded"
+                onError={(e) => {
+                  // Fallback para o QR Code SVG se a imagem não carregar
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              {/* QR Code fallback */}
+              <div className="w-32 h-32 mx-auto rounded bg-gray-100 flex items-center justify-center" style={{display: 'none'}}>
                 <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
                   {/* QR Code placeholder */}
                   <rect width="120" height="120" fill="white"/>
